@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>index</title>
+        <title>Quote</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,15 +10,13 @@
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to QuotingDojo</h1>
-            <form action="/new" method="post">
-                Your Name:  <input type="text" name="name" placeholder="Name">
-                <br>
-                Your Quote: <input type="text" name="quote" placeholder="Quote">
-                <br>
-                <input type="submit" name="Submit" value="Add my quote!">
-            </form>
-            <button type="button" name="button"><a href="/quotes">Skip to quotes!</a></button>
+            <h1>Here are the awesome quotes!</h1>
+            <a href="/">Add a new quote.</a>
+            <% for (var i of quotes) { %>
+                <h3>Author: <%= i.name %></h2>
+                <h3>Quote: <%= i.quote %></h3>
+                <hr>
+            <% } %>
         </div>
     </body>
 </html>
