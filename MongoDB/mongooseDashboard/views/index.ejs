@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style>
+        <title>Index</title>
+    </head>
+    <body>
+        <h1>Index</h1>
+        <a href="/mongoose/new">Add one!</a>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Animal</th>
+                <th>Species</th>
+                <th>numberOfLegs</th>
+            </tr>
+            <% for (var animal of animals){ %>
+            <tr>
+                <td><%= animal.name %></td>
+                <td><%= animal.animal %></td>
+                <td><%= animal.species %></td>
+                <td><%= animal.numberOfLegs %></td>
+                <td><form action="/mongoose/<%= animal._id %>" method="get">
+                    <input type="submit" name="id" value="Check">
+                </form></td>
+                <td><form action="/mongoose/edit/<%= animal._id %>" method="get">
+                    <input type="submit" name="id" value="Edit">
+                </form></td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>

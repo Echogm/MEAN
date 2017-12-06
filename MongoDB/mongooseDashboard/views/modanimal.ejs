@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit</title>
+    </head>
+    <body>
+        <h1>Edit</h1>
+        <form action="/mongoose/edit" method="post">
+            <% for (var animal of animals) { %>
+            <input type="hidden" name="id" value="<%= animal._id %>">
+            Name: <input type="text" name="name" value="<%= animal.name %>">
+            <br>
+            Animal: <input type="text" name="animal" value="<%= animal.animal %>">
+            <br>
+            species: <input type="text" name="species" value="<%= animal.species %>">
+            <br>
+            Number of legs: <input type="text" name="numberOfLegs" value="<%= animal.numberOfLegs %>">
+            <br>
+            <input type="submit" name="submit" value="Submit Changes">
+            <% } %>
+        </form>
+    </body>
+</html>
